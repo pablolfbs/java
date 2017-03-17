@@ -15,8 +15,7 @@ public class ListaEncadeada {
 			this.ultimo.setProximo(novoNo);
 			this.ultimo = novoNo;
 			this.countSize++;
-		}
-		
+		}		
 	}
 
 	// Adiciona em posição específica.

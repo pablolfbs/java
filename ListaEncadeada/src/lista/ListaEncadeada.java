@@ -42,10 +42,10 @@ public class ListaEncadeada {
 
 	// Adiciona no início.
 	public void addInício(Produto conteudo) {
-		Node no = new Node(conteudo, this.primeiro);
-		this.primeiro = no;
+		Node novoNo = new Node(conteudo, this.primeiro);
+		this.primeiro = novoNo;
 		if (this.countSize == 0) {
-			this.ultimo = no;
+			this.ultimo = novoNo;
 		}
 		countSize++;
 	}

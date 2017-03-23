@@ -1,5 +1,7 @@
 package modelo;
 
-public class ClientTableModel {
+import view.DefaultTableModel;
+
+public class ClientTableModel extends DefaultTableModel{
 
 }

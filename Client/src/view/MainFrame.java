@@ -76,11 +76,6 @@ public class MainFrame extends JFrame {
 		add(panel, new GBC(0, 0).both());
 	}
 
-	DefaultTableModel model = new DefaultTableModel(new Object[][] {
-	      { "some", "text" }, { "any", "text" }, { "even", "more" },
-	      { "text", "strings" }, { "and", "other" }, { "text", "values" } },
-	      new Object[] { "Column 1", "Column 2" });
-
 	/**
 	 * Constrói o painel de botões.
 	 */

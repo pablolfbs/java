@@ -51,8 +51,8 @@ public class ListaEncadeada {
 	}
 
 	public void remove(int posicao) {
-		Node proximo = this.getNode(posicao + 1);
 		Node anterior = this.getNode(posicao - 1);
+		Node proximo = this.getNode(posicao + 1);
 		anterior.getProximo().setProximo(null);
 		anterior.setProximo(proximo);
 		countSize--;

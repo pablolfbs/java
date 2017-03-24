@@ -12,9 +12,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
-public class AddClientDialog extends JDialog {
+public class ClientDialog extends JDialog {
 	
-	public AddClientDialog(MainFrame mainFrame) {
+	public ClientDialog(MainFrame mainFrame) {
 		build(mainFrame);
 	}
 
@@ -49,7 +49,7 @@ public class AddClientDialog extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				JOptionPane.showMessageDialog(null, "Salvo com sucessso!");
-				AddClientDialog.this.dispose();
+				ClientDialog.this.dispose();
 			}
 		});
 		panel.add(saveButton, new GBC(1, 3).right());

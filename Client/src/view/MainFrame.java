@@ -87,7 +87,7 @@ public class MainFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new AddClientDialog(MainFrame.this);
+				new ClientDialog(MainFrame.this);
 			}
 		});
 

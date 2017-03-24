@@ -39,7 +39,7 @@ public class MainFrame extends JFrame {
 		setLayout(new GridBagLayout());
 		buildMenu();
 		buildComponents();
-		setSize(400, 300);
+		setSize(600, 400);
 		setIconImage();
 		setMinimumSize(new Dimension(400, 300));
 		setLocationRelativeTo(null);

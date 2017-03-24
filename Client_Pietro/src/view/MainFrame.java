@@ -65,8 +65,8 @@ public class MainFrame extends JFrame {
 	private void buildMainPanel() {
 		JPanel panel = new JPanel(new GridBagLayout());
 
-		String[] items = { "Nome", "CPF" };
-		JComboBox<String> comboBox = new JComboBox<>(items);
+		String[] itens = { "Nome", "CPF" };
+		JComboBox<String> comboBox = new JComboBox<>(itens);
 		panel.add(comboBox, new GBC(0, 0));
 
 		JTextField searchField = new JTextField(20);

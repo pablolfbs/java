@@ -1,4 +1,4 @@
-package modelo;
+package model;
 
 import view.DefaultTableModel;
 

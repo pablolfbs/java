@@ -43,8 +43,7 @@ public class ListaDuplamenteEncadeada {
 			Node novoNo = new Node (conteudo, anterior /*<-se colocar esse valor null?*/, proximo);
 			anterior.setProximo(novoNo);
 			novoNo.setAnterior(anterior);
-			novoNo.setProximo(proximo); 
-			/*?*/
+			novoNo.setProximo(proximo); /*?*/
 			countSize++;
 		}
 	}

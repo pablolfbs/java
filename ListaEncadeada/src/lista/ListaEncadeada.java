@@ -9,7 +9,7 @@ public class ListaEncadeada {
 	// Adiciona no final.
 	public void add(Produto conteudo) {
 		if (this.countSize == 0) {
-			this.addInício(conteudo);
+			this.addInicio(conteudo);
 		} else {
 			Node novoNo = new Node(conteudo, null);
 			this.ultimo.setProximo(novoNo);
@@ -21,13 +21,13 @@ public class ListaEncadeada {
 	// Adiciona em posição específica.
 	public void add(int posicao, Produto conteudo) {
 		if (posicao == 0) {
-			this.addInício(conteudo);
+			this.addInicio(conteudo);
 		} else if (posicao == this.countSize) {
 			this.add(conteudo);
 		} else {
 			Node anterior = this.getNode(posicao - 1);
-			Node novo = new Node(conteudo, anterior.getProximo());
-			anterior.setProximo(novo);
+			Node novoNo = new Node(conteudo, anterior.getProximo());
+			anterior.setProximo(novoNo);
 			this.countSize++;
 		}
 	}
@@ -41,7 +41,7 @@ public class ListaEncadeada {
 	}
 
 	// Adiciona no início.
-	public void addInício(Produto conteudo) {
+	public void addInicio(Produto conteudo) {
 		Node novoNo = new Node(conteudo, this.primeiro);
 		this.primeiro = novoNo;
 		if (this.countSize == 0) {
@@ -59,14 +59,14 @@ public class ListaEncadeada {
 	}
 
 	public void removeInicio() {
-		Node segundo = this.primeiro.getProximo();
+		Node no = this.primeiro.getProximo();
 		this.primeiro.setProximo(null);
-		this.primeiro = segundo;
+		this.primeiro = no;
 		countSize--;
 	}
 
 	public void removeFinal() {
-		Node penultimo = this.getNode(countSize - 2);
+		Node penultimo = this.getNode(countSize - 2); /*ao invés de 'countSize-2', pode ser 'posição-1'?*/
 		this.ultimo = penultimo;
 		this.ultimo.setProximo(null);
 		countSize--;

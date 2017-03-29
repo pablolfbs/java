@@ -39,10 +39,10 @@ public class ListaDuplamenteEncadeada {
 			this.add(conteudo);
 		} else {
 			Node anterior = this.getNode(posicao - 1);
-			Node novoNo = new Node (conteudo, anterior.getProximo()/*<-se colocar esse valor null?*/, null);
+			Node proximo = this.getNode(posicao + 1);
+			Node novoNo = new Node (conteudo, anterior /*<-se colocar esse valor null?*/, proximo);
 			anterior.setProximo(novoNo);
 			novoNo.setAnterior(anterior);
-			Node proximo = this.getNode(posicao + 1); /*?*/
 			novoNo.setProximo(proximo); /*?*/
 			countSize++;
 		}

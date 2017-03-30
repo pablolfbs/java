@@ -35,15 +35,16 @@ public class ListaDuplamenteEncadeada {
 	public void add(int posicao, Produto conteudo) {
 		if(posicao == 0) {
 			this.addInicio(conteudo);
-		} else if(posicao == this.countSize) {
+		} else if(posicao == this.countSize - 1 /*Dúvida: countSize ou countSize-1?*/) {
 			this.add(conteudo);
 		} else {
 			Node anterior = this.getNode(posicao - 1);
 			Node proximo = this.getNode(posicao + 1);
-			Node novoNo = new Node (conteudo, anterior /*<-se colocar esse valor null?*/, proximo);
-			anterior.setProximo(novoNo);
+			Node novoNo = new Node (conteudo, anterior, proximo);
 			novoNo.setAnterior(anterior);
-			novoNo.setProximo(proximo); /*?*/
+			anterior.setProximo(novoNo);
+			novoNo.setProximo(proximo);
+			proximo.setAnterior(novoNo);
 			countSize++;
 		}
 	}
@@ -72,7 +73,13 @@ public class ListaDuplamenteEncadeada {
 	 */
 	public void remove(int posicao) {
 		Node anterior = this.getNode(posicao - 1);
-		
+		Node proximo = this.getNode(posicao + 1);
+		Node noAApagar = this.getNode(posicao);
+		noAApagar.setAnterior(null);
+		noAApagar.setProximo(null);
+		anterior.setProximo(proximo);
+		proximo.setAnterior(anterior);
+		countSize--;		
 	}
 	
 	/*

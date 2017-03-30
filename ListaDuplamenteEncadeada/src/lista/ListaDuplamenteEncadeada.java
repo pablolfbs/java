@@ -41,9 +41,7 @@ public class ListaDuplamenteEncadeada {
 			Node anterior = this.getNode(posicao - 1);
 			Node proximo = this.getNode(posicao + 1);
 			Node novoNo = new Node (conteudo, anterior, proximo);
-			novoNo.setAnterior(anterior);
 			anterior.setProximo(novoNo);
-			novoNo.setProximo(proximo);
 			proximo.setAnterior(novoNo);
 			countSize++;
 		}

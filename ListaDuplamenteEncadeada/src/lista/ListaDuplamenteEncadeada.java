@@ -17,30 +17,29 @@ public class ListaDuplamenteEncadeada {
 			this.tail.setProximo(novoNo);
 			novoNo.setAnterior(tail);
 			this.tail = novoNo;
-			
-			/* ****Outro mode de fazer.****
-			 * Node novoNo = new Node(conteudo, null, null);
-			 * this.tail.setProximo(novoNo);
-			 * Node antigoTail = this.getNode(countSize - 2);
-			 * novoNo.setAnterior(antigoTail);
+
+			/*
+			 * ****Outro mode de fazer.**** Node novoNo = new Node(conteudo,
+			 * null, null); this.tail.setProximo(novoNo); Node antigoTail =
+			 * this.getNode(countSize - 2); novoNo.setAnterior(antigoTail);
 			 * this.tail = novoNo;
 			 */
 			countSize++;
 		}
 	}
-	
+
 	/*
 	 * Adiciona em posição específica.
 	 */
 	public void add(int posicao, Produto conteudo) {
-		if(posicao == 0) {
+		if (posicao == 0) {
 			this.addInicio(conteudo);
-		} else if(posicao == this.countSize - 1 /*Dúvida: countSize ou countSize-1?*/) {
+		} else if (posicao == this.countSize) {
 			this.add(conteudo);
 		} else {
 			Node anterior = this.getNode(posicao - 1);
 			Node proximo = this.getNode(posicao + 1);
-			Node novoNo = new Node (conteudo, anterior, proximo);
+			Node novoNo = new Node(conteudo, anterior, proximo);
 			anterior.setProximo(novoNo);
 			proximo.setAnterior(novoNo);
 			countSize++;
@@ -65,7 +64,7 @@ public class ListaDuplamenteEncadeada {
 			this.tail = novoNo;
 		}
 	}
-	
+
 	/*
 	 * Remove.
 	 */
@@ -77,9 +76,9 @@ public class ListaDuplamenteEncadeada {
 		noAApagar.setProximo(null);
 		anterior.setProximo(proximo);
 		proximo.setAnterior(anterior);
-		countSize--;		
+		countSize--;
 	}
-	
+
 	/*
 	 * Remove no início.
 	 */
@@ -90,13 +89,14 @@ public class ListaDuplamenteEncadeada {
 		novoHead.setAnterior(null);
 		countSize--;
 	}
-	
+
 	/*
 	 * Remove no final.
 	 */
 	public void removeFinal() {
 		Node novoTail = this.tail.getAnterior();
-		novoTail.setProximo(null); /*Está certa a ordem ou inverte com a linha debaixo?*/
+		novoTail.setProximo(
+				null); /* Está certa a ordem ou inverte com a linha debaixo? */
 		this.tail = novoTail;
 		countSize--;
 	}

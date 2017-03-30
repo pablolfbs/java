@@ -22,7 +22,7 @@ public class ListaEncadeada {
 	public void add(int posicao, Produto conteudo) {
 		if (posicao == 0) {
 			this.addInicio(conteudo);
-		} else if (posicao == this.countSize) /*acho que é 'countSize-1'*/ {
+		} else if (posicao == this.countSize) {
 			this.add(conteudo);
 		} else {
 			Node anterior = this.getNode(posicao - 1);

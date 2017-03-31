@@ -13,9 +13,8 @@ public class ListaDuplamenteEncadeada {
 		if (this.countSize == 0) {
 			this.addInicio(conteudo);
 		} else {
-			Node novoNo = new Node(conteudo, null, null);
+			Node novoNo = new Node(conteudo, this.tail, null);
 			this.tail.setProximo(novoNo);
-			novoNo.setAnterior(tail);
 			this.tail = novoNo;
 
 			/*
@@ -58,7 +57,8 @@ public class ListaDuplamenteEncadeada {
 	 * Adiciona no início.
 	 */
 	public void addInicio(Produto conteudo) {
-		Node novoNo = new Node(conteudo, this.head, this.tail);
+		Node novoNo = new Node(conteudo, null, this.head);
+		this.head.setAnterior(novoNo);
 		this.head = novoNo;
 		if (countSize == 0) {
 			this.tail = novoNo;
@@ -83,11 +83,18 @@ public class ListaDuplamenteEncadeada {
 	 * Remove no início.
 	 */
 	public void removeInicio() {
-		Node novoHead = this.head.getProximo();
-		this.head.setProximo(null);
-		this.head = novoHead;
-		novoHead.setAnterior(null);
-		countSize--;
+		if (this.countSize == 0) {
+			System.out.println("A lista está vazia!");
+		} else {
+			Node novoHead = this.head.getProximo();
+			this.head.setProximo(null);
+			this.head = novoHead;
+			novoHead.setAnterior(null);
+			countSize--;
+			if (countSize == 0) {
+				this.tail = null;
+			}
+		}
 	}
 
 	/*
@@ -97,6 +104,7 @@ public class ListaDuplamenteEncadeada {
 		Node novoTail = this.tail.getAnterior();
 		novoTail.setProximo(
 				null); /* Está certa a ordem ou inverte com a linha debaixo? */
+		this.tail.setAnterior(null);
 		this.tail = novoTail;
 		countSize--;
 	}

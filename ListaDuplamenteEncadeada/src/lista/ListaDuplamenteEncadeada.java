@@ -69,14 +69,20 @@ public class ListaDuplamenteEncadeada {
 	 * Remove.
 	 */
 	public void remove(int posicao) {
-		Node anterior = this.getNode(posicao - 1);
-		Node proximo = this.getNode(posicao + 1);
-		Node noAApagar = this.getNode(posicao);
-		noAApagar.setAnterior(null);
-		noAApagar.setProximo(null);
-		anterior.setProximo(proximo);
-		proximo.setAnterior(anterior);
-		countSize--;
+		if (posicao == 0) {
+			this.removeInicio();
+		} else if (posicao == countSize - 1) {
+			this.removeFinal();
+		} else {
+			Node anterior = this.getNode(posicao - 1);
+			Node proximo = this.getNode(posicao + 1);
+			Node noAApagar = this.getNode(posicao);
+			noAApagar.setAnterior(null);
+			noAApagar.setProximo(null);
+			anterior.setProximo(proximo);
+			proximo.setAnterior(anterior);
+			countSize--;
+		}
 	}
 
 	/*

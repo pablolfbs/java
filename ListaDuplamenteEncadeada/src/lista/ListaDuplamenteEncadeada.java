@@ -63,6 +63,7 @@ public class ListaDuplamenteEncadeada {
 		if (countSize == 0) {
 			this.tail = novoNo;
 		}
+		countSize++;
 	}
 
 	/*

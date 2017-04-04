@@ -72,13 +72,14 @@ public class ListaCircular {
 		if (this.countSize == 0) {
 			System.out.println("A lista está vazia!");
 		} else {
-		Node novoHead = this.head.getProximo();
-		this.head.setProximo(null);
-		this.head = novoHead;
-		novoHead.setAnterior(this.tail);
-		this.tail.setProximo(novoHead);
-		countSize--;
-	}}
+			Node novoHead = this.head.getProximo();
+			this.head.setProximo(null);
+			this.head = novoHead;
+			novoHead.setAnterior(this.tail);
+			this.tail.setProximo(novoHead);
+			countSize--;
+		}
+	}
 
 	/*
 	 * Remover do final.

@@ -48,8 +48,11 @@ public class ListaCircular {
 			this.addFinal(conteudo);
 		} else {
 			Node anterior = this.getNode(posicao - 1);
-			Node proximo = this.anterior.getProximo();
+			Node proximo = this.getNode(posicao + 1);
 			Node newNode = new Node(conteudo, anterior, proximo);
+			anterior.setProximo(newNode);
+			proximo.setAnterior(newNode);
+			countSize++;
 		}
 	}
 
@@ -61,4 +64,19 @@ public class ListaCircular {
 		return tempNode;
 	}
 	
+	/*
+	 * Remover do início.
+	 */
+	
+	public void remove() {
+		
+	}
+	
+	/*
+	 * Remover do final.
+	 */
+	
+	/*
+	 * Remover da posição específica.
+	 */
 }

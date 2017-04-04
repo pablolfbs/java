@@ -111,7 +111,5 @@ public class DLinkedList {
 			temp = temp.getNext();
 		}
 		return list;
-	}
-	
-	
+	}	
 }

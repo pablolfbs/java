@@ -109,8 +109,7 @@ public class ListaDuplamenteEncadeada {
 	 */
 	public void removeFinal() {
 		Node novoTail = this.tail.getAnterior();
-		novoTail.setProximo(
-				null); /* Está certa a ordem ou inverte com a linha debaixo? */
+		novoTail.setProximo(null); /* Está certa a ordem ou inverte com a linha debaixo? */
 		this.tail.setAnterior(null);
 		this.tail = novoTail;
 		countSize--;

@@ -37,12 +37,12 @@ public class ListaCircular {
 			countSize++;
 		}
 	}
-	
+
 	/*
 	 * Adiciona em posição específica.
 	 */
 	public void add(int posicao, Produto conteudo) {
-		if(posicao == 0) {
+		if (posicao == 0) {
 			this.addInicio(conteudo);
 		} else if (posicao == this.countSize) {
 			this.addFinal(conteudo);
@@ -63,20 +63,52 @@ public class ListaCircular {
 		}
 		return tempNode;
 	}
-	
+
 	/*
 	 * Remover do início.
 	 */
-	
-	public void remove() {
-		
-	}
-	
+
+	public void removeInicio() {
+		if (this.countSize == 0) {
+			System.out.println("A lista está vazia!");
+		} else {
+		Node novoHead = this.head.getProximo();
+		this.head.setProximo(null);
+		this.head = novoHead;
+		novoHead.setAnterior(this.tail);
+		this.tail.setProximo(novoHead);
+		countSize--;
+	}}
+
 	/*
 	 * Remover do final.
 	 */
-	
+	public void removeFinal() {
+		Node novoTail = this.tail.getAnterior();
+		this.tail.setAnterior(null);
+		this.tail = novoTail;
+		novoTail.setProximo(this.head);
+		this.head.setAnterior(novoTail);
+		countSize--;
+	}
+
 	/*
 	 * Remover da posição específica.
 	 */
+	public void remove(int posicao) {
+		if (posicao == 0) {
+			this.removeInicio();
+		} else if (posicao == countSize - 1) {
+			this.removeFinal();
+		} else {
+			Node anterior = this.getNode(posicao - 1);
+			Node proximo = this.getNode(posicao + 1);
+			Node removedNode = this.getNode(posicao);
+			removedNode.setAnterior(null);
+			removedNode.setProximo(null);
+			anterior.setProximo(proximo);
+			proximo.setAnterior(anterior);
+			countSize--;
+		}
+	}
 }

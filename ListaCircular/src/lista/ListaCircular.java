@@ -48,7 +48,7 @@ public class ListaCircular {
 			this.addFinal(conteudo);
 		} else {
 			Node anterior = this.getNode(posicao - 1);
-			Node proximo = this.getNode(posicao + 1);
+			Node proximo = anterior.getProximo();
 			Node newNode = new Node(conteudo, anterior, proximo);
 			anterior.setProximo(newNode);
 			proximo.setAnterior(newNode);
@@ -102,9 +102,9 @@ public class ListaCircular {
 		} else if (posicao == countSize - 1) {
 			this.removeFinal();
 		} else {
-			Node anterior = this.getNode(posicao - 1);
-			Node proximo = this.getNode(posicao + 1);
 			Node removedNode = this.getNode(posicao);
+			Node anterior = removedNode.getAnterior();
+			Node proximo = removedNode.getProximo();
 			removedNode.setAnterior(null);
 			removedNode.setProximo(null);
 			anterior.setProximo(proximo);

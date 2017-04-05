@@ -14,6 +14,11 @@ public class Main {
 		} else {
 			//continua tentando
 		}
+		
+		Client c = new Client();
+		System.out.println(c.getA());
+		System.out.println(c.isB());
+		System.out.println(c.getC());
 	}
 
 }

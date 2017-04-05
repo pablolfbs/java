@@ -8,6 +8,14 @@ public class Variavel_Constante {
 		
 		final int B = 55;
 //		B = 60; // Erro de compilação.
+		
 	}
+//	private void m1() {
+//		int a = 10;
+//		{
+//			int b = 30;
+//		}
+//		System.out.println(b);
+//	}
 	
 }

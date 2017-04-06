@@ -47,19 +47,15 @@ public class ListaCircular {
 	public void add(int posicao, int conteudo) {
 		if (posicao == 0) {
 			this.addInicio(conteudo);
-		} else if (posicao == this.countSize) {
+		} else if (posicao >= this.countSize) {
 			this.addFinal(conteudo);
 		} else {
-			if (posicao > countSize) {
-				System.out.println("Posição inválida. Impossível inserir!");
-			} else {
-				Node anterior = this.getNode(posicao - 1);
-				Node proximo = anterior.getProximo();
-				Node newNode = new Node(conteudo, anterior, proximo);
-				anterior.setProximo(newNode);
-				proximo.setAnterior(newNode);
-				countSize++;
-			}
+			Node anterior = this.getNode(posicao - 1);
+			Node proximo = anterior.getProximo();
+			Node newNode = new Node(conteudo, anterior, proximo);
+			anterior.setProximo(newNode);
+			proximo.setAnterior(newNode);
+			countSize++;
 		}
 	}
 
@@ -122,7 +118,7 @@ public class ListaCircular {
 			countSize--;
 		}
 	}
-	
+
 	public String toString() {
 		Node node = this.head;
 		String list = "";

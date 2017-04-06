@@ -13,7 +13,12 @@ public class Test {
 		myList.addInicio(5);
 		System.out.println(myList.toString());
 		
-		myList.addFinal(20);
+		myList.add(3, 50);
+		System.out.println(myList.toString());
+		
+		myList.addFinal(90);
+		myList.addFinal(80);
+		myList.addFinal(60);
 		System.out.println(myList.toString());
 		
 		myList.add(2, 30);
@@ -33,6 +38,9 @@ public class Test {
 		System.out.println(myList.toString());
 		
 		myList.addInicio(40);
+		System.out.println(myList.toString());
+		
+		myList.add(2, 60);
 		System.out.println(myList.toString());
 	}
 

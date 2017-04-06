@@ -59,6 +59,9 @@ public class ListaCircular {
 		}
 	}
 
+	/*
+	 * Método para pegar a posição.
+	 */
 	private Node getNode(int posicao) {
 		Node tempNode = this.head;
 		for (int i = 0; i < posicao; i++) {
@@ -119,6 +122,10 @@ public class ListaCircular {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString() {
 		Node node = this.head;
 		String list = "";

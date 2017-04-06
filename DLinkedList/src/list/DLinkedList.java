@@ -41,20 +41,17 @@ public class DLinkedList {
 	public void insertPosition(int position, int content) {
 		if (position == 0) {
 			this.insertHead(content);
-		} else if (position == this.countSize) {
+		} else if (position >= this.countSize) {
 			this.insertTail(content);
 		} else {
-			if (position > countSize) {
-				System.out.println("Posição inválida. Impossível inserir!");
-			} else {
-				Node temp1 = this.getNode(position - 1);
-				Node temp2 = temp1.getNext();
-				Node newNode = new Node(temp1, content, temp2);
-				temp1.setNext(newNode);
-				temp2.setPrevious(newNode);
-				this.countSize++;
-			}
+			Node temp1 = this.getNode(position - 1);
+			Node temp2 = temp1.getNext();
+			Node newNode = new Node(temp1, content, temp2);
+			temp1.setNext(newNode);
+			temp2.setPrevious(newNode);
+			this.countSize++;
 		}
+
 	}
 
 	public Node getNode(int position) {
@@ -127,5 +124,5 @@ public class DLinkedList {
 			temp = temp.getNext();
 		}
 		return list;
-	}	
+	}
 }

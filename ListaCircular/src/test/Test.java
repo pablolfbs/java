@@ -6,28 +6,34 @@ public class Test {
 	
 	public static void main(String[] args) {
 		
-		ListaCircular lc = new ListaCircular();
+		ListaCircular myList = new ListaCircular();
 		
-		lc.addInicio(10);
-		System.out.println(lc.toString());
+		myList.addInicio(15);
+		myList.addInicio(10);
+		myList.addInicio(5);
+		System.out.println(myList.toString());
 		
-		lc.addFinal(20);
-		System.out.println(lc.toString());
+		myList.addFinal(20);
+		System.out.println(myList.toString());
 		
-		lc.add(0, 30);
-		System.out.println(lc.toString());
+		myList.add(2, 30);
+		System.out.println(myList.toString());
 		
-		lc.removeInicio();
-		System.out.println(lc.toString());
+		myList.removeInicio();
+		myList.removeInicio();
+		System.out.println(myList.toString());
 		
-		lc.removeFinal();
-		System.out.println(lc.toString());
+		myList.removeFinal();
+		System.out.println(myList.toString());
 		
-		lc.remove(0);
-		System.out.println(lc.toString());
+		myList.remove(1);
+		System.out.println(myList.toString());
+
+		myList.remove(0);
+		System.out.println(myList.toString());
 		
-		lc.add(0, 40);
-		System.out.println(lc.toString());
+		myList.addInicio(40);
+		System.out.println(myList.toString());
 	}
 
 }

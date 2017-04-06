@@ -2,21 +2,21 @@ package lista;
 
 public class Node {
 	
-	private Produto conteudo;
+	private int conteudo;
 	private Node anterior;
 	private Node proximo;
 	
-	public Node(Produto conteudo, Node anterior, Node proximo) {
+	public Node(int conteudo, Node anterior, Node proximo) {
 		this.conteudo = conteudo;
 		this.anterior = anterior;
 		this.proximo = proximo;
 	}
 
-	public Produto getConteudo() {
+	public int getConteudo() {
 		return conteudo;
 	}
 
-	public void setConteudo(Produto conteudo) {
+	public void setConteudo(int conteudo) {
 		this.conteudo = conteudo;
 	}
 

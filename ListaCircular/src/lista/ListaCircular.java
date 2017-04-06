@@ -4,7 +4,7 @@ public class ListaCircular {
 
 	private Node head;
 	private Node tail;
-	private int countSize;
+	private int countSize = 0;
 
 	/*
 	 * Adicionar no início.
@@ -18,7 +18,6 @@ public class ListaCircular {
 			this.head.setAnterior(newNode);
 			this.tail.setProximo(newNode);
 			this.head = newNode;
-			this.tail = newNode;
 		}
 		countSize++;
 	}
@@ -32,8 +31,9 @@ public class ListaCircular {
 		} else {
 			Node newNode = new Node(conteudo, this.tail, this.head);
 			this.tail.setProximo(newNode);
-			this.head.setAnterior(newNode);
 			this.tail = newNode;
+			this.tail.setProximo(this.head);
+			this.head.setAnterior(this.tail);
 			if (countSize == 0) {
 				this.head = newNode;
 			}
@@ -65,7 +65,7 @@ public class ListaCircular {
 
 	private Node getNode(int posicao) {
 		Node tempNode = this.head;
-		for (int i = 0; i <= posicao; i++) {
+		for (int i = 0; i < posicao; i++) {
 			tempNode = tempNode.getProximo();
 		}
 		return tempNode;
@@ -74,16 +74,15 @@ public class ListaCircular {
 	/*
 	 * Remover do início.
 	 */
-
 	public void removeInicio() {
 		if (this.countSize == 0) {
 			System.out.println("A lista está vazia!");
 		} else {
-			Node novoHead = this.head.getProximo();
-			this.head.setProximo(null);
-			this.head = novoHead;
-			novoHead.setAnterior(this.tail);
-			this.tail.setProximo(novoHead);
+			Node aRemover = this.head;
+			this.head = aRemover.getProximo();
+			aRemover.setProximo(null);
+			this.head.setAnterior(this.tail);
+			this.tail.setProximo(this.head);
 			countSize--;
 		}
 	}

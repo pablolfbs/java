@@ -17,5 +17,4 @@ public class TestInsert {
 		myList.insertPosition(4, 30);
 		System.out.println(myList.toString());
 	}
-
 }

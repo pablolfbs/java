@@ -9,7 +9,7 @@ public class ListaDuplamenteEncadeada {
 	/*
 	 * Adiciona no final.
 	 */
-	public void add(int conteudo) {
+	public void add(Produto conteudo) {
 		if (this.countSize == 0) {
 			this.addInicio(conteudo);
 		} else {
@@ -30,28 +30,24 @@ public class ListaDuplamenteEncadeada {
 	/*
 	 * Adiciona em posição específica.
 	 */
-	public void add(int posicao, int conteudo) {
+	public void add(int posicao, Produto conteudo) {
 		if (posicao == 0) {
 			this.addInicio(conteudo);
 		} else if (posicao == this.countSize) {
 			this.add(conteudo);
 		} else {
-			if (posicao > countSize) {
-				System.out.println("Posição inválida. Impossível inserir!");
-			} else {
-				Node anterior = this.getNode(posicao - 1);
-				Node proximo = anterior.getProximo();
-				Node novoNo = new Node(conteudo, anterior, proximo);
-				anterior.setProximo(novoNo);
-				proximo.setAnterior(novoNo);
-				countSize++;
-			}
+			Node anterior = this.getNode(posicao - 1);
+			Node proximo = this.getNode(posicao + 1);
+			Node novoNo = new Node(conteudo, anterior, proximo);
+			anterior.setProximo(novoNo);
+			proximo.setAnterior(novoNo);
+			countSize++;
 		}
 	}
 
 	public Node getNode(int posicao) {
 		Node tempNode = this.head;
-		for (int i = 0; i <= posicao; i++) {
+		for (int i = 0; i < posicao; i++) {
 			tempNode = tempNode.getProximo();
 		}
 		return tempNode;
@@ -60,14 +56,12 @@ public class ListaDuplamenteEncadeada {
 	/*
 	 * Adiciona no início.
 	 */
-	public void addInicio(int conteudo) {
+	public void addInicio(Produto conteudo) {
 		Node novoNo = new Node(conteudo, null, this.head);
+		this.head.setAnterior(novoNo);
+		this.head = novoNo;
 		if (countSize == 0) {
-			this.head = novoNo;
 			this.tail = novoNo;
-		} else {
-			this.head.setAnterior(novoNo);
-			this.head = novoNo;
 		}
 		countSize++;
 	}
@@ -114,29 +108,15 @@ public class ListaDuplamenteEncadeada {
 	 * Remove no final.
 	 */
 	public void removeFinal() {
-		if (this.countSize == 0) {
-			System.out.println("A lista está vazia!");
-		} else {
-			Node novoTail = this.tail.getAnterior();
-			novoTail.setProximo(null); /* Está certa a ordem ou inverte com a linha debaixo? */
-			this.tail.setAnterior(null);
-			this.tail = novoTail;
-			countSize--;
-		}
+		Node novoTail = this.tail.getAnterior();
+		novoTail.setProximo(null); /* Está certa a ordem ou inverte com a linha debaixo? */
+		this.tail.setAnterior(null);
+		this.tail = novoTail;
+		countSize--;
 	}
 
 	public int tamanho() {
 		return countSize;
-	}
-	
-	public String toString() {
-		Node node = this.head;
-		String list = "";
-		for (int i = 0; i < countSize; i++) {
-			list += node.getConteudo() + " ";
-			node = node.getProximo();
-		}
-		return list;
 	}
 
 }

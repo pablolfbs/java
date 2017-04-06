@@ -13,7 +13,7 @@ public class Test {
 		myList.addInicio(5);
 		System.out.println(myList.toString());
 		
-		myList.add(3, 50);
+		myList.add(5, 50);
 		System.out.println(myList.toString());
 		
 		myList.addFinal(90);

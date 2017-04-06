@@ -1,5 +1,6 @@
 package static1;
 
+
 public class Main {
 	
 	public static void main(String[] args) {
@@ -15,10 +16,16 @@ public class Main {
 			//continua tentando
 		}
 		
-		Client c = new Client();
-		System.out.println(c.getA());
-		System.out.println(c.isB());
-		System.out.println(c.getC());
+//		Client c = new Client();
+//		System.out.println(c.getA());
+//		System.out.println(c.isB());
+//		System.out.println(c.getC());
+//		
+//		new Client(). new C2();
+		
+		Cadeira c = new Cadeira();
+		c.setCor("Blue");
+		c.cor = "Blue";
 	}
 
 }

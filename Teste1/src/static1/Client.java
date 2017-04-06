@@ -49,4 +49,8 @@ public class Client {
 		this.name = name;
 	}
 	
+	public class C2 {
+		
+	}
+	
 }

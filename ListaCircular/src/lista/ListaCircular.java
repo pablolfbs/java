@@ -9,12 +9,15 @@ public class ListaCircular {
 	/*
 	 * Adicionar no início.
 	 */
-	public void addInicio(Produto conteudo) {
+	public void addInicio(int conteudo) {
 		Node newNode = new Node(conteudo, this.tail, this.head);
-		this.head.setAnterior(newNode);
-		this.tail.setProximo(newNode);
-		this.head = newNode;
 		if (countSize == 0) {
+			this.head = newNode;
+			this.tail = newNode;
+		} else {
+			this.head.setAnterior(newNode);
+			this.tail.setProximo(newNode);
+			this.head = newNode;
 			this.tail = newNode;
 		}
 		countSize++;
@@ -23,7 +26,7 @@ public class ListaCircular {
 	/*
 	 * Adicionar no final.
 	 */
-	public void addFinal(Produto conteudo) {
+	public void addFinal(int conteudo) {
 		if (countSize == 0) {
 			this.addInicio(conteudo);
 		} else {
@@ -41,18 +44,22 @@ public class ListaCircular {
 	/*
 	 * Adiciona em posição específica.
 	 */
-	public void add(int posicao, Produto conteudo) {
+	public void add(int posicao, int conteudo) {
 		if (posicao == 0) {
 			this.addInicio(conteudo);
 		} else if (posicao == this.countSize) {
 			this.addFinal(conteudo);
 		} else {
-			Node anterior = this.getNode(posicao - 1);
-			Node proximo = anterior.getProximo();
-			Node newNode = new Node(conteudo, anterior, proximo);
-			anterior.setProximo(newNode);
-			proximo.setAnterior(newNode);
-			countSize++;
+			if (posicao > countSize) {
+				System.out.println("Posição inválida. Impossível inserir!");
+			} else {
+				Node anterior = this.getNode(posicao - 1);
+				Node proximo = anterior.getProximo();
+				Node newNode = new Node(conteudo, anterior, proximo);
+				anterior.setProximo(newNode);
+				proximo.setAnterior(newNode);
+				countSize++;
+			}
 		}
 	}
 
@@ -85,12 +92,16 @@ public class ListaCircular {
 	 * Remover do final.
 	 */
 	public void removeFinal() {
-		Node novoTail = this.tail.getAnterior();
-		this.tail.setAnterior(null);
-		this.tail = novoTail;
-		novoTail.setProximo(this.head);
-		this.head.setAnterior(novoTail);
-		countSize--;
+		if (this.countSize == 0) {
+			System.out.println("A lista está vazia!");
+		} else {
+			Node novoTail = this.tail.getAnterior();
+			this.tail.setAnterior(null);
+			this.tail = novoTail;
+			novoTail.setProximo(this.head);
+			this.head.setAnterior(novoTail);
+			countSize--;
+		}
 	}
 
 	/*
@@ -111,5 +122,15 @@ public class ListaCircular {
 			proximo.setAnterior(anterior);
 			countSize--;
 		}
+	}
+	
+	public String toString() {
+		Node node = this.head;
+		String list = "";
+		for (int i = 0; i < countSize; i++) {
+			list += node.getConteudo() + " ";
+			node = node.getProximo();
+		}
+		return list;
 	}
 }

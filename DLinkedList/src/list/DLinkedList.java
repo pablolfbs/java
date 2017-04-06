@@ -21,6 +21,9 @@ public class DLinkedList {
 		countSize++;
 	}
 
+	/*
+	 * Adicionar no final.
+	 */
 	public void insertTail(int content) {
 		if (countSize == 0) {
 			this.insertHead(content);
@@ -58,6 +61,9 @@ public class DLinkedList {
 		return temp;
 	}
 
+	/*
+	 * Remover no início.
+	 */
 	public void removeHead() {
 		if (this.countSize == 0) {
 			System.out.println("A lista está vazia!");
@@ -73,6 +79,9 @@ public class DLinkedList {
 		}
 	}
 
+	/*
+	 * Remover no final.
+	 */
 	public void removeTail() {
 		if (countSize <= 1) {
 			this.removeHead();
@@ -85,6 +94,9 @@ public class DLinkedList {
 		}
 	}
 
+	/*
+	 * Remover na posição específica.
+	 */
 	public void remove(int position) {
 		if (position == 0) {
 			this.removeHead();

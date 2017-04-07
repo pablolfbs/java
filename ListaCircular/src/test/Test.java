@@ -13,6 +13,9 @@ public class Test {
 		myList.addInicio(5);
 		System.out.println(myList.toString());
 		
+		myList.removeInicio();
+		System.out.println(myList.toString());
+		
 		myList.add(5, 50);
 		System.out.println(myList.toString());
 		
@@ -43,5 +46,4 @@ public class Test {
 		myList.add(2, 60);
 		System.out.println(myList.toString());
 	}
-
 }

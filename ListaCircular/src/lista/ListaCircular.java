@@ -76,14 +76,17 @@ public class ListaCircular {
 	public void removeInicio() {
 		if (this.countSize == 0) {
 			System.out.println("A lista está vazia!");
+		} else if (this.countSize == 1) {
+			this.head = null;
+			this.tail = this.head;
 		} else {
 			Node aRemover = this.head;
 			this.head = aRemover.getProximo();
 			aRemover.setProximo(null);
 			this.head.setAnterior(this.tail);
 			this.tail.setProximo(this.head);
-			countSize--;
 		}
+		countSize--;
 	}
 
 	/*
@@ -92,6 +95,8 @@ public class ListaCircular {
 	public void removeFinal() {
 		if (this.countSize == 0) {
 			System.out.println("A lista está vazia!");
+		} else if(this.countSize == 1) {
+			this.removeInicio();
 		} else {
 			Node novoTail = this.tail.getAnterior();
 			this.tail.setAnterior(null);
@@ -124,14 +129,20 @@ public class ListaCircular {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	public String toString() {
 		Node node = this.head;
 		String list = "";
 		for (int i = 0; i < countSize; i++) {
-			list += node.getConteudo() + " ";
+			list += node.getConteudo();
 			node = node.getProximo();
+			if(i == countSize - 1) {
+				list += "";
+			} else {
+				list += " - ";
+			}			
 		}
 		return list;
 	}

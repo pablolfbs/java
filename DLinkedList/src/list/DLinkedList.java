@@ -68,6 +68,10 @@ public class DLinkedList {
 	public void removeHead() {
 		if (this.countSize == 0) {
 			System.out.println("A lista está vazia!");
+		} else if (this.countSize == 1) {
+			this.head = null;
+			this.tail = this.head;
+			this.countSize--;
 		} else {
 			Node temp = this.head;
 			this.head = temp.getNext();
@@ -120,8 +124,13 @@ public class DLinkedList {
 		Node temp = this.head;
 		String list = "";
 		for (int i = 0; i < countSize; i++) {
-			list += temp.getContent() + " ";
+			list += temp.getContent() + "";
 			temp = temp.getNext();
+			if (i ==  this.countSize - 1) {
+				list += "";
+			} else {
+				list += " - ";
+			}
 		}
 		return list;
 	}

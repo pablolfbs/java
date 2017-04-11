@@ -1,5 +1,7 @@
 package lista;
 
+import java.util.Scanner;
+
 public class ListaCircular {
 
 	private Node head;
@@ -86,16 +88,14 @@ public class ListaCircular {
 			this.head.setAnterior(this.tail);
 			this.tail.setProximo(this.head);
 		}
-		countSize--;
+		this.countSize--;
 	}
 
 	/*
 	 * Remover do final.
 	 */
 	public void removeFinal() {
-		if (this.countSize == 0) {
-			System.out.println("A lista está vazia!");
-		} else if(this.countSize == 1) {
+		if (this.countSize <= 1) {
 			this.removeInicio();
 		} else {
 			Node novoTail = this.tail.getAnterior();
@@ -138,11 +138,11 @@ public class ListaCircular {
 		for (int i = 0; i < countSize; i++) {
 			list += node.getConteudo();
 			node = node.getProximo();
-			if(i == countSize - 1) {
+			if (i == countSize - 1) {
 				list += "";
 			} else {
 				list += " - ";
-			}			
+			}
 		}
 		return list;
 	}

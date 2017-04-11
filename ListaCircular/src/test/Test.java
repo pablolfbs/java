@@ -8,13 +8,13 @@ public class Test {
 		
 		ListaCircular myList = new ListaCircular();
 		
-		myList.addInicio(15);
-		myList.addInicio(10);
+//		myList.addInicio(15);
+//		myList.addInicio(10);
 		myList.addInicio(5);
 		System.out.println(myList.toString());
 		
-		myList.removeInicio();
-		System.out.println(myList.toString());
+//		myList.removeInicio();
+//		System.out.println(myList.toString());
 		
 		myList.add(5, 50);
 		System.out.println(myList.toString());

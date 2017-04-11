@@ -71,17 +71,16 @@ public class DLinkedList {
 		} else if (this.countSize == 1) {
 			this.head = null;
 			this.tail = this.head;
-			this.countSize--;
 		} else {
 			Node temp = this.head;
 			this.head = temp.getNext();
 			temp.setNext(null);
 			head.setPrevious(null);
-			this.countSize--;
 			if (countSize == 0) {
 				this.tail = null;
 			}
 		}
+		this.countSize--;
 	}
 
 	/*

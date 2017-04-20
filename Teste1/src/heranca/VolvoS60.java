@@ -22,11 +22,11 @@ public class VolvoS60 extends Car {
 		return super.getAccelaration();
 	}
 
-
 	public static void main(String[] args) {
 		
 		VolvoS60 c = new VolvoS60(10);
 		c.getAccelaration();
+		System.out.println(c.getAccelaration());
 	}
 	
 }

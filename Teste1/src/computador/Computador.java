@@ -27,4 +27,9 @@ public class Computador {
 		this.memoriaRam = memoriaRam;
 	}
 	
+	@Override
+	public String toString() {
+		return "CPU: " + getCpu() + "\nMemória: " + getMemoriaRam();
+	}
+	
 }

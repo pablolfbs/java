@@ -2,13 +2,13 @@ package banco;
 
 public class Banco {
 	
-	private Conta[] contas;
+	private Conta[] contas = new Conta[10];
 	
 	public void criarConta() {
-		Conta[] contas = new Conta[10];
 		for (int i = 0; i < contas.length; i++) {
-			Conta c = new Conta();
-			contas[i] = c;
+			if (contas[i] == null) {
+				
+			}
 		}
 	}
 	

@@ -1,3 +1,4 @@
+package constante;
 
 public class Variavel_Constante {
 

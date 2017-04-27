@@ -18,9 +18,7 @@ public class Main {
 //		
 //		Person p2 = new Person();
 //		p2.m1();
-		
-		
-		
+				
 		Employee[] p = new Employee[5];
 		
 		for (int i = 0; i < 3; i++) {

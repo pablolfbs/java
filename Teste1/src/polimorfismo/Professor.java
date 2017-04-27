@@ -29,13 +29,12 @@ public class Professor extends Employee {
 	
 	@Override
 	public float getSalary() {
-		float salary = hoursMonthly * hoursValue;
-		return salary;
+		return this.hoursMonthly * this.hoursValue;
 	}
 	
 	@Override
 	public String toString() {
-		return "Nome: " + this.getName() + "Salário: " + this.getSalary();
+		return "Nome: " + this.getName() + "\nSalário: " + this.getSalary() + "\n";
 	}
 
 }

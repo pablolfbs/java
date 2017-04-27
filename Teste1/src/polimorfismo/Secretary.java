@@ -32,13 +32,9 @@ public class Secretary extends Employee {
 		return this.baseSalary + this.bonus;
 	}
 
-	public void setSalary(float salary) {
-		this.baseSalary = salary;
-	}
-	
 	@Override
 	public String toString() {
-		return "Nome: " + this.getName() + "Salário: " + this.getSalary();
+		return "Nome: " + this.getName() + "\nSalário: " + this.getSalary() + "\n";
 	}
 	
 }

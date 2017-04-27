@@ -36,4 +36,9 @@ public class Secretary extends Employee {
 		this.baseSalary = salary;
 	}
 	
+	@Override
+	public String toString() {
+		return "Nome: " + this.getName() + "Salário: " + this.getSalary();
+	}
+	
 }

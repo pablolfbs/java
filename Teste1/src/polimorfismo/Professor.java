@@ -32,5 +32,10 @@ public class Professor extends Employee {
 		float salary = hoursMonthly * hoursValue;
 		return salary;
 	}
+	
+	@Override
+	public String toString() {
+		return "Nome: " + this.getName() + "Salário: " + this.getSalary();
+	}
 
 }

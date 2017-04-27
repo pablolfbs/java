@@ -19,14 +19,16 @@ public class Main {
 //		Person p2 = new Person();
 //		p2.m1();
 				
-		Employee[] p = new Employee[5];
+		Employee[] e = new Employee[5];
 		
-		for (int i = 0; i < 3; i++) {
-			
-		}
-		for (Employee e : p) {
-			e = new Professor("João", 10, 10);
-			System.out.println(e.getSalary());			
+		e[0] = new Professor("João", 10, 10);
+		e[0] = new Professor("João", 10, 10);
+		e[0] = new Professor("João", 10, 10);
+		e[0] = new Secretary("João", 1000, 200);
+		e[0] = new Secretary("João", 2000, 500);
+		
+		for (Employee em : e) {
+			System.out.println(em);
 		}
 		
 	}

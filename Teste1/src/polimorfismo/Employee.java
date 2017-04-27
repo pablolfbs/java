@@ -20,5 +20,5 @@ public class Employee {
 	public float getSalary() {
 		return 0;
 	}
-	
+
 }

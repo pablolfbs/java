@@ -2,20 +2,20 @@ package polimorfismo;
 
 public class Professor extends Employee {
 	
-	private float hoursMonthly;
+	private int hoursMonthly;
 	private float hoursValue;
 	
-	public Professor(String name, float hoursMonthly, float hoursValue) {
+	public Professor(String name, int hoursMonthly, float hoursValue) {
 		super(name);
 		this.hoursMonthly = hoursMonthly;
 		this.hoursValue = hoursValue;
 	}
 
-	public float getHoursMonthly() {
+	public int getHoursMonthly() {
 		return hoursMonthly;
 	}
 
-	public void setHoursMonthly(float hoursMonthly) {
+	public void setHoursMonthly(int hoursMonthly) {
 		this.hoursMonthly = hoursMonthly;
 	}
 

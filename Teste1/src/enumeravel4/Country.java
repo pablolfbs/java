@@ -29,9 +29,8 @@ public class Country {
 	
 	@Override
 	public String toString() {
-		String s;
-		s= "País: " + this.getName() + "\nPlaneta: " + this.getPlanet() + "\nRadius: "
-				+ this.getPlanet().getRadius() + "\nGravity: " + this.getPlanet().getGravity();
+		System.out.println("País: " + this.getName() + "\nPlaneta: " + this.getPlanet() + "\nRadius: "
+				+ this.getPlanet().getRadius() + "\nGravity: " + this.getPlanet().getGravity());
 		return super.toString();
 	}
 

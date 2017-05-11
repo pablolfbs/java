@@ -19,4 +19,5 @@ public enum Planet {
 	public float getGravity() {
 		return gravity;
 	}
+	
 }

@@ -10,11 +10,13 @@ public class Notebook extends Computador {
 	}
 
 	public String getBateria() {
+//		setBateria("1.0");
+//		this.setBateria("1.0");
 		return bateria;
 	}
 
-	public void setBateria(String bateria) {
-		this.bateria = bateria;
+	public void setBateria(String f) {
+		this.bateria = f;
 	}
 	
 	@Override

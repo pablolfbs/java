@@ -30,14 +30,14 @@ public class Aposta {
 			this.dataPartida = dataPartida;
 		}
 
-//		@Override
-//		public int hashCode() {
-//			final int prime = 31;
-//			int result = 1;
-//			result = prime * result + ((time == null) ? 0 : time.hashCode());
-//			return result;
-//		}
-//
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + ((jogo == null) ? 0 : jogo.hashCode());
+			return result;
+		}
+
 //		@Override
 //		public boolean equals(Object obj) {
 //			if (this == obj)
@@ -47,10 +47,10 @@ public class Aposta {
 //			if (getClass() != obj.getClass())
 //				return false;
 //			Client other = (Client) obj;
-//			if (time == null) {
-//				if (other.time != null)
+//			if (jogo == null) {
+//				if (other.jogo != null)
 //					return false;
-//			} else if (!time.equals(other.time))
+//			} else if (!jogo.equals(other.jogo))
 //				return false;
 //			return true;
 //		}

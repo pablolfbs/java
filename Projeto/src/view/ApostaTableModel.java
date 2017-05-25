@@ -10,66 +10,60 @@ import model.Aposta;
 
 public class ApostaTableModel extends DefaultTableModel {
 	
-	private String[] columnNames = { "Tabela", "Data da Partida"};
+	private String[] columnNames = {"Jogo", "Data da Partida"};
 
-	private List<Aposta> aposta = new ArrayList<>();
-
-	@Override
-	public void addTableModelListener(TableModelListener l) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Class<?> getColumnClass(int columnIndex) {
-		return null;
-	}
+	private List<Aposta> apostas = new ArrayList<>();
 
 	@Override
 	public int getColumnCount() {
 		return columnNames.length;
 	}
 
+//	@Override
+//	public Object getValueAt(int rowIndex, int columnIndex) {
+//		Aposta aposta = apostas.get(rowIndex);
+//		switch (columnIndex) {
+//		case 0:
+//			return aposta.getJogo();
+//		case 1:
+//			return aposta.getDataPartida();
+//		}
+//		return "";
+//	}
+	
 	@Override
-	public String getColumnName(int columnIndex) {
-		// TODO Auto-generated method stub
-		return null;
+	public String getColumnName(int column) {
+		return columnNames[column];
 	}
 
 	@Override
-	public int getRowCount() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public Object getValueAt(int rowIndex, int columnIndex) {
-		Aposta client = aposta.get(rowIndex);
-		switch (columnIndex) {
-		case 0:
-			return aposta.getJogo();
-		case 1:
-			return aposta.getDataPartida();
-		}
-		return "";
-	}
-
-	@Override
-	public boolean isCellEditable(int rowIndex, int columnIndex) {
-		// TODO Auto-generated method stub
+	public boolean isCellEditable(int row, int column) {
 		return false;
 	}
 
-	@Override
-	public void removeTableModelListener(TableModelListener l) {
-		// TODO Auto-generated method stub
-
+	public Aposta getRow(int rowNumber) {
+		return apostas.get(rowNumber);
 	}
 
-	@Override
-	public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-		// TODO Auto-generated method stub
-
-	}
+//	public void addAposta(Aposta aposta) {
+//		apostas.add(aposta);
+//		Object[] addData = { aposta.getJogo(), aposta.getDataPartida() };
+//		this.addRow(addData);
+//	}
+//	
+//	public void updateAposta(Aposta aposta, int selectedRow) {
+//		for (Aposta a : apostas) {
+//			if (a.equals(aposta)) {
+//				a.setJogo(aposta.getJogo());
+//				a.setDataPartida(aposta.getDataPartida());
+//			}
+//		}
+//
+//		// Falta atualiza o dado da tabela.
+//		this.setValueAt(aposta.getJogo(), selectedRow, 0); // TODO criar
+//															// constantes para
+//															// isso.
+//		this.setValueAt(aposta.getDataPartida(), selectedRow, 2);
+//	}
 
 }

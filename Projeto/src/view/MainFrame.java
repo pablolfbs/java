@@ -39,13 +39,22 @@ public class MainFrame extends JFrame {
 	}
 
 	private void buildComponents() {
+		buildMainPanel();
 		buildButtonPanel();
 	}
 
+	private void buildMainPanel() {
+		JPanel panel = new JPanel(new GridBagLayout());
+
+		buildTable(panel);
+
+		add(panel, new GBC(0, 0).both().insets(10, 5, 5, 0));
+	}
 
 	private void buildButtonPanel() {
 		JPanel panel = new JPanel(new GridBagLayout());
-		JButton updateButton = new JButton("Atualizar");
+		
+		JButton updateButton = new JButton("Atualizar Jogos");
 		panel.add(updateButton, new GBC(0, 0).horizontal());
 		updateButton.addActionListener(new ActionListener() {
 			
@@ -59,20 +68,17 @@ public class MainFrame extends JFrame {
 			}
 		});
 		
-//		JButton apostaButton = new JButton("Apostar");
-//		panel.add(apostaButton, new GBC(0, 1));
-//		apostaButton.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				int selectedRow = table.getSelectedRow();
-//				ApostaTableModel model = (ApostaTableModel) table.getModel();
-//				Aposta aposta = model.getRow(selectedRow);
-//				new ApostaDialog(MainFrame.this, aposta, table.getSelectedRow());
-//			}
-//		});
+		JButton apostaButton = new JButton("Apostar");
+		panel.add(apostaButton, new GBC(0, 1));
+		apostaButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new ApostaDialog(MainFrame.this);
+			}
+		});
+		add(panel, new GBC(1, 0));
 	}
-	
 
 	private void buildTable(JPanel panel) {
 		table = new JTable();
@@ -107,5 +113,9 @@ public class MainFrame extends JFrame {
 			}
 		});
 	}
+	
+	public void addAposta(Aposta aposta) {
+		ApostaTableModel model = (ApostaTableModel) table.getModel();
+		model.addAposta(aposta);
+	}
 }
-

@@ -95,6 +95,7 @@ public class MainFrame extends JFrame {
 	 */
 	private void buildButtonPanel() {
 		JPanel panel = new JPanel(new GridBagLayout());
+		
 		JButton newButton = new JButton("Novo");
 		panel.add(newButton, new GBC(0, 0).horizontal());
 		newButton.addActionListener(new ActionListener() {

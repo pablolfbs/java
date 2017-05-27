@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -14,7 +13,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 
 import model.Aposta;
 
@@ -39,11 +37,20 @@ public class MainFrame extends JFrame {
 	}
 
 	private void buildComponents() {
-		buildMainPanel();
+		buildMainPanel1();
+		buildMainPanel2();
 		buildButtonPanel();
 	}
 
-	private void buildMainPanel() {
+	private void buildMainPanel1() {
+		JPanel panel = new JPanel(new GridBagLayout());
+
+		buildTable(panel);
+
+		add(panel, new GBC(0, 0).both().insets(10, 5, 5, 0));
+	}
+
+	private void buildMainPanel2() {
 		JPanel panel = new JPanel(new GridBagLayout());
 
 		buildTable(panel);
@@ -54,17 +61,13 @@ public class MainFrame extends JFrame {
 	private void buildButtonPanel() {
 		JPanel panel = new JPanel(new GridBagLayout());
 		
-		JButton updateButton = new JButton("Atualizar Jogos");
+		JButton updateButton = new JButton("Jogos");
 		panel.add(updateButton, new GBC(0, 0).horizontal());
 		updateButton.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				updateButton(e);
-			}
-
-			private void updateButton(ActionEvent e) {
-				repaint();
+				new JogosDialog(MainFrame.this);
 			}
 		});
 		

@@ -16,7 +16,7 @@ public class ApostaDialog extends JDialog {
 	
 	private MainFrame mainFrame;
 	private JTextField jogoField;
-	private JTextField timeField;
+	private JTextField placarField;
 	private JTextField valorField;
 	private int selectedRow;
 	private Aposta aposta;
@@ -50,10 +50,10 @@ public class ApostaDialog extends JDialog {
 		jogoField = new JTextField(20);
 		add(jogoField, new GBC(1, 0).insets(10, 10, 0, 0));
 
-		JLabel timeLabel = new JLabel("Time:");
-		add(timeLabel, new GBC(0, 1).left().insets(10, 10, 0, 0));
-		timeField = new JTextField(20);
-		add(timeField, new GBC(1, 1).insets(10, 10, 0, 0));
+		JLabel placarLabel = new JLabel("Placar:");
+		add(placarLabel, new GBC(0, 1).left().insets(10, 10, 0, 0));
+		placarField = new JTextField(20);
+		add(placarField, new GBC(1, 1).insets(10, 10, 0, 0));
 
 		JLabel valorLabel = new JLabel("Valor da Aposta:");
 		add(valorLabel, new GBC(0, 2).left().insets(10, 10, 0, 0));
@@ -71,7 +71,7 @@ public class ApostaDialog extends JDialog {
 			}
 
 			private Aposta getAposta() {
-				return new Aposta(jogoField.getText(), timeField.getText(), valorField.getText());
+				return new Aposta(jogoField.getText(), placarField.getText(), valorField.getText());
 			}
 		});
 		
@@ -82,13 +82,13 @@ public class ApostaDialog extends JDialog {
 	
 	private void setFields() {
 		jogoField.setText(aposta.getJogo());
-		timeField.setText(aposta.getTime());
-		timeField.setEnabled(false);
+		placarField.setText(aposta.getPlacar());
+		placarField.setEnabled(false);
 		valorField.setText(aposta.getValor());
 	}
 	
 	private Aposta getAposta() {
-		return new Aposta(jogoField.getText(), timeField.getText(), valorField.getText());
+		return new Aposta(jogoField.getText(), placarField.getText(), valorField.getText());
 	}
 		
 }

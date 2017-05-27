@@ -3,16 +3,14 @@ package model;
 public class Aposta {
 
 	private String jogo;
-
-	private String time;
-
+	private String placar;
 	private String valor;
 
-	public Aposta(String jogo, String time, String string) {
+	public Aposta(String jogo, String placar, String valor) {
 		super();
 		this.jogo = jogo;
-		this.time = time;
-		this.valor = string;
+		this.placar = placar;
+		this.valor = valor;
 	}
 
 	public String getJogo() {
@@ -23,12 +21,12 @@ public class Aposta {
 		this.jogo = jogo;
 	}
 
-	public String getTime() {
-		return time;
+	public String getPlacar() {
+		return placar;
 	}
 
-	public void setTime(String time) {
-		this.time = time;
+	public void setPlacar(String placar) {
+		this.placar = placar;
 	}
 
 	public String getValor() {
@@ -37,31 +35,6 @@ public class Aposta {
 
 	public void setValor(String valor) {
 		this.valor = valor;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((jogo == null) ? 0 : jogo.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Aposta other = (Aposta) obj;
-		if (jogo == null) {
-			if (other.jogo != null)
-				return false;
-		} else if (!jogo.equals(other.jogo))
-			return false;
-		return true;
 	}
 
 }

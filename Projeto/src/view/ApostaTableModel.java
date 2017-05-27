@@ -9,7 +9,7 @@ import model.Aposta;
 
 public class ApostaTableModel extends DefaultTableModel {
 	
-	private String[] columnNames = {"Jogo", "Time", "Valor da Aposta"};
+	private String[] columnNames = {"Jogo", "Placar", "Valor da Aposta"};
 
 	private List<Aposta> apostas = new ArrayList<>();
 
@@ -25,7 +25,7 @@ public class ApostaTableModel extends DefaultTableModel {
 		case 0:
 			return aposta.getJogo();
 		case 1:
-			return aposta.getTime();
+			return aposta.getPlacar();
 		case 2:
 			return aposta.getValor();
 		}
@@ -48,7 +48,7 @@ public class ApostaTableModel extends DefaultTableModel {
 
 	public void addAposta(Aposta aposta) {
 		apostas.add(aposta);
-		Object[] addValor = { aposta.getJogo(), aposta.getTime(), aposta.getValor() };
+		Object[] addValor = { aposta.getJogo(), aposta.getPlacar(), aposta.getValor() };
 		this.addRow(addValor);
 	}
 	

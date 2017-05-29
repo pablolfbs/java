@@ -38,7 +38,6 @@ public class MainFrame extends JFrame {
 
 	private void buildComponents() {
 		buildMainPanel1();
-		buildMainPanel2();
 		buildButtonPanel();
 	}
 
@@ -50,13 +49,6 @@ public class MainFrame extends JFrame {
 		add(panel, new GBC(0, 0).both().insets(10, 5, 5, 0));
 	}
 
-	private void buildMainPanel2() {
-		JPanel panel = new JPanel(new GridBagLayout());
-
-		buildTable(panel);
-
-		add(panel, new GBC(0, 0).both().insets(10, 5, 5, 0));
-	}
 
 	private void buildButtonPanel() {
 		JPanel panel = new JPanel(new GridBagLayout());

@@ -13,14 +13,14 @@ import javax.swing.JTextField;
 import model.Aposta;
 
 public class ApostaDialog extends JDialog {
-	
+
 	private MainFrame mainFrame;
 	private JTextField jogoField;
 	private JTextField placarField;
 	private JTextField valorField;
 	private int selectedRow;
 	private Aposta aposta;
-	
+
 	public ApostaDialog(MainFrame mainFrame) {
 		this(mainFrame, null, 0);
 	}
@@ -66,7 +66,7 @@ public class ApostaDialog extends JDialog {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-					mainFrame.addAposta(getAposta());
+				mainFrame.addAposta(getAposta());
 				ApostaDialog.this.dispose();
 			}
 
@@ -74,21 +74,21 @@ public class ApostaDialog extends JDialog {
 				return new Aposta(jogoField.getText(), placarField.getText(), valorField.getText());
 			}
 		});
-		
-		if(aposta != null) {
+
+		if (aposta != null) {
 			setFields();
 		}
 	}
-	
+
 	private void setFields() {
 		jogoField.setText(aposta.getJogo());
 		placarField.setText(aposta.getPlacar());
 		placarField.setEnabled(false);
 		valorField.setText(aposta.getValor());
 	}
-	
+
 	private Aposta getAposta() {
 		return new Aposta(jogoField.getText(), placarField.getText(), valorField.getText());
 	}
-		
+
 }

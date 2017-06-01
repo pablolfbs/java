@@ -18,7 +18,7 @@ public abstract class Person {
 	}
 	
 	public static void main(String[] args) {
-		new Person("Seu Madruga");
+//		new Person("Seu Madruga"); //Erro de classe abstrata
 	}
 
 }

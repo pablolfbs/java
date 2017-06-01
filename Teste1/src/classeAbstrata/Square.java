@@ -1,12 +1,12 @@
-package interfaces;
+package classeAbstrata;
 
-public class Square implements Shape {
+public class Square extends Shape {
 
 	private int sideLength;
 	private static final int SIDES = 4;
 
-	public Square(int sideLength) {
-		super();
+	public Square(int x, int y, int sideLength) {
+		super(x, y);
 		this.sideLength = sideLength;
 	}
 

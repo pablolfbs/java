@@ -31,8 +31,9 @@ public class MainFrame extends JFrame {
 	private void build() {
 		setLayout(new GridBagLayout());
 		buildMenu();
+		setTitle("Calculadora");
 		buildComponents();
-		setSize(210, 300);
+		setSize(232, 300);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

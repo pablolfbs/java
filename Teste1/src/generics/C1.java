@@ -11,7 +11,7 @@ public class C1<T> {
 	public void setT(T t) {
 		this.t = t;
 	}
-	
+			
 	public static void main(String[] args) {
 		
 		C1<String> c1 = new C1<String>();

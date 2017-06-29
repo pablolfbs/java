@@ -77,7 +77,6 @@ public class ClientDAO {
 	}
 
 	public static void Print(ArrayList<Client> list) {
-
 		for (Client client : list) {
 			System.out.println("CPF: " + client.getCpf() + "    " + "Nome: " + client.getName());
 		}

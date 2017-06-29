@@ -5,6 +5,9 @@ import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,6 +21,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import db.ConnectionFactory;
 import model.Client;
 
 /**
@@ -177,8 +181,21 @@ public class MainFrame extends JFrame {
 	 * @param client Cliente.
 	 */
 	public void addClient(Client client) {
-		ClientTableModel model = (ClientTableModel) table.getModel();
-		model.addClient(client);
+		
+		Connection con = ConnectionFactory.getConnection();
+		
+		try {
+			PreparedStatement command = con.prepareStatement("INSERT INTO client VALUES (?, ?)");
+			command.setString(1, client.getCpf());
+			command.setString(2, client.getName());
+			command.executeUpdate();
+			ClientTableModel model = (ClientTableModel) table.getModel();
+			model.addClient(client);
+			command.close();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -188,8 +205,21 @@ public class MainFrame extends JFrame {
 	 * @param selectedRow Linha selecionada pelo usuário.
 	 */
 	public void updateClient(Client client, int selectedRow) {
-		ClientTableModel model = (ClientTableModel) table.getModel();
-		model.updateClient(client, selectedRow);
+		
+		Connection con = ConnectionFactory.getConnection();
+
+		try {
+			PreparedStatement command = con.prepareStatement("UPDATE client SET name = ? WHERE cpf = ?");
+			command.setString(1, client.getName());
+			command.setString(2, client.getCpf());
+			command.executeUpdate();
+			ClientTableModel model = (ClientTableModel) table.getModel();
+			model.updateClient(client, selectedRow);
+			command.close();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**

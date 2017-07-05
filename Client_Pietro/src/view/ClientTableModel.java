@@ -13,6 +13,10 @@ public class ClientTableModel extends DefaultTableModel {
 	private String[] columnNames = { "Nome", "CPF", "Data de Nascimento" };
 
 	private List<Client> clients = new ArrayList<>();
+	
+	public ClientTableModel(){
+		refresh();
+	}
 
 	@Override
 	public int getColumnCount() {
@@ -100,10 +104,10 @@ public class ClientTableModel extends DefaultTableModel {
 		this.removeRow(selectedRow);
 	}
 	
-//	public void refresh(){
-//		for (int i = 0; i < ClientDAO.select().size(); i++) {
-//			
-//			addClient(ClientDAO.select().get(i));
-//		}
-//	}
+	public void refresh(){
+		for (int i = 0; i < ClientDAO.select().size(); i++) {
+			
+			addClient(ClientDAO.select().get(i));
+		}
+	}
 }

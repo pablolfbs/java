@@ -82,12 +82,12 @@ public class ClientDAO {
 		}
 	}
 
-	public static void main(String[] args) {
+//	public static void main(String[] args) {
 //		insert(new Client("Judas", "12345678901", null));
 //		insert(new Client("Pablo", "12345678902", null));
 //		update(new Client("João", "12345678901", null));
 //		delete(new Client("João", "12345678901", null));
 //		delete(new Client("Pablo", "12345678902", null));
 //		Print(select());
-	}
+//	}
 }

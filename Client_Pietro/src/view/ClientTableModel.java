@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 
+import db.ClientDAO;
 import model.Client;
 
 public class ClientTableModel extends DefaultTableModel {
@@ -98,5 +99,11 @@ public class ClientTableModel extends DefaultTableModel {
 		clients.remove(selectedRow);
 		this.removeRow(selectedRow);
 	}
-
+	
+//	public void refresh(){
+//		for (int i = 0; i < ClientDAO.select().size(); i++) {
+//			
+//			addClient(ClientDAO.select().get(i));
+//		}
+//	}
 }

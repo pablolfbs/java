@@ -10,7 +10,7 @@ import model.Client;
 
 public class ClientDAO {
 
-	private static void insert(Client client) {
+	public static void insert(Client client) {
 
 		Connection con = ConnectionFactory.getConnection();
 
@@ -26,7 +26,7 @@ public class ClientDAO {
 		}
 	}
 
-	private static void update(Client client) {
+	public static void update(Client client) {
 
 		Connection con = ConnectionFactory.getConnection();
 
@@ -42,7 +42,7 @@ public class ClientDAO {
 		}
 	}
 
-	private static void delete(Client client) {
+	public static void delete(Client client) {
 
 		Connection con = ConnectionFactory.getConnection();
 
@@ -57,7 +57,7 @@ public class ClientDAO {
 		}
 	}
 
-	private static ArrayList<Client> select() {
+	public static ArrayList<Client> select() {
 		ArrayList<Client> select = new ArrayList<Client>();
 
 		Connection con = ConnectionFactory.getConnection();

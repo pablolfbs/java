@@ -21,6 +21,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import db.ClientDAO;
 import db.ConnectionFactory;
 import model.Client;
 
@@ -129,7 +130,10 @@ public class MainFrame extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				removeClient(table.getSelectedRow());
+				int selectedRow = table.getSelectedRow();
+				ClientTableModel model = (ClientTableModel) table.getModel();
+				Client client = model.getRow(selectedRow);
+				removeClient(client, table.getSelectedRow());
 			}
 		});
 
@@ -182,20 +186,10 @@ public class MainFrame extends JFrame {
 	 */
 	public void addClient(Client client) {
 		
-		Connection con = ConnectionFactory.getConnection();
+		ClientTableModel model = (ClientTableModel) table.getModel();
+		ClientDAO.insert(client);
+		model.addClient(client);
 		
-		try {
-			PreparedStatement command = con.prepareStatement("INSERT INTO client VALUES (?, ?)");
-			command.setString(1, client.getCpf());
-			command.setString(2, client.getName());
-			command.executeUpdate();
-			ClientTableModel model = (ClientTableModel) table.getModel();
-			model.addClient(client);
-			command.close();
-			con.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 	}
 	
 	/**
@@ -206,27 +200,17 @@ public class MainFrame extends JFrame {
 	 */
 	public void updateClient(Client client, int selectedRow) {
 		
-		Connection con = ConnectionFactory.getConnection();
-
-		try {
-			PreparedStatement command = con.prepareStatement("UPDATE client SET name = ? WHERE cpf = ?");
-			command.setString(1, client.getName());
-			command.setString(2, client.getCpf());
-			command.executeUpdate();
-			ClientTableModel model = (ClientTableModel) table.getModel();
-			model.updateClient(client, selectedRow);
-			command.close();
-			con.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		ClientTableModel model = (ClientTableModel) table.getModel();
+		ClientDAO.update(client);
+		model.updateClient(client, selectedRow);
 	}
 	
 	/**
 	 * Remove um cliente.
 	 */
-	private void removeClient(int selectedRow) {
+	private void removeClient(Client client, int selectedRow) {
 		ClientTableModel model = (ClientTableModel) table.getModel();
+		ClientDAO.delete(client);
 		model.removeClient(selectedRow);
 	}
 

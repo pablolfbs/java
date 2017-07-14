@@ -55,7 +55,7 @@ public class RestauranteDao {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				restauranteArrayList.add(new Restaurante(rs.getString("cpnj"), rs.getString("nome"),
-						rs.getString("endereco"), rs.getString("telefone"), null));
+						rs.getString("endereco"), rs.getString("tel"), null));
 			}
 			rs.close();
 			ps.close();

@@ -73,11 +73,15 @@ public class RestauranteDao {
 					con.prepareStatement("SELECT * FROM restaurante WHERE cpnj = ?");
 			ps.setString(1, cnpj);
 			ResultSet rs = ps.executeQuery();
-			if (rs.getString("cpnj") == null) {
-				return false;
-			} else {
-				return true;
+			while (rs.next()) {
+				if (rs.getString("cpnj") == null) {
+					return false;
+				} else {
+					return true;
+				}
 			}
+			rs.close();
+			ps.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

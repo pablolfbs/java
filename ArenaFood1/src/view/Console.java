@@ -17,10 +17,12 @@ public class Console {
 	}
 
 	private void menu() {
-		
-		System.out.println("1 - CADASTRA RESTAURANTE");
-		System.out.println("2 - EDITAR RESTAURANTE");
-		System.out.println("3 - LISTA RESTAURANTES CADASTRADOS");
+		System.out.println("-----------------------------------------------");
+		System.out.println("|        ESCOLHA UMA DAS OPÇÕES ABAIXO        |");
+		System.out.println("| 1 -        CADASTRA RESTAURANTE             |");
+		System.out.println("| 2 -        EDITAR RESTAURANTE               |");
+		System.out.println("| 3 -   LISTA RESTAURANTES CADASTRADOS        |");
+		System.out.println("|---------------------------------------------|");
 		
 		String s1 = s.nextLine();
 		escolha(s1);
@@ -53,7 +55,7 @@ public class Console {
 
 	private void editar() {
 		
-		System.out.println("INFORME O CNPJ: ");
+		System.out.println("INFORME O CNPJ QUE DESEJA ALTERAR: ");
 		String cnpj = s.nextLine();
 		
 		if (dao.verificar(cnpj)) {

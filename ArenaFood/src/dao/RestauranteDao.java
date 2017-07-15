@@ -5,11 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import javax.naming.spi.DirStateFactory.Result;
-
-import com.mysql.jdbc.UpdatableResultSet;
-
-import dao.ConnectionFactory;
 import model.Restaurante;
 
 public class RestauranteDao {
@@ -18,7 +13,7 @@ public class RestauranteDao {
 		Connection con = ConnectionFactory.getConnection();
 		try {
 			PreparedStatement ps = con.prepareStatement("INSERT INTO restaurante VALUES (?,?,?,?)");
-			ps.setString(1, restaurante.getCpnj());
+			ps.setString(1, restaurante.getCnpj());
 			ps.setString(2, restaurante.getEndereco());
 			ps.setString(3, restaurante.getNome());
 			ps.setString(4, restaurante.getTelefone());
@@ -34,11 +29,11 @@ public class RestauranteDao {
 		Connection con = ConnectionFactory.getConnection();
 		try {
 			PreparedStatement ps = con
-					.prepareStatement("UPDATE restaurante SET endereco = ?, nome = ?, telefone = ? WHERE cpnj = ?");
+					.prepareStatement("UPDATE restaurante SET endereco = ?, nome = ?, telefone = ? WHERE cnpj = ?");
 			ps.setString(1, restaurante.getEndereco());
 			ps.setString(2, restaurante.getNome());
 			ps.setString(3, restaurante.getTelefone());
-			ps.setString(4, restaurante.getCpnj());
+			ps.setString(4, restaurante.getCnpj());
 			ps.executeUpdate();
 			ps.close();
 			con.close();
@@ -70,11 +65,11 @@ public class RestauranteDao {
 		ArrayList<Restaurante> restauranteArrayList = new ArrayList<>();
 		try {
 			PreparedStatement ps = 
-					con.prepareStatement("SELECT * FROM restaurante WHERE cpnj = ?");
+					con.prepareStatement("SELECT * FROM restaurante WHERE cnpj = ?");
 			ps.setString(1, cnpj);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				if (rs.getString("cpnj") == null) {
+				if (rs.getString("cnpj") == null) {
 					return false;
 				} else {
 					return true;

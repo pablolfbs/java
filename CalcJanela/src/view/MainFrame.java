@@ -1,30 +1,28 @@
 package view;
 
-import java.awt.Dimension;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /*
  * Janela principal do sistema.
  */
 public class MainFrame extends JFrame {
-	
+
+	JTextField txtField;
+
 	/*
 	 * Construtor.
 	 */
 	public MainFrame() {
 		build();
 	}
-	
+
 	/*
 	 * Constrói a janela.
 	 */
@@ -39,37 +37,37 @@ public class MainFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 	}
-	
+
 	/*
 	 * Constrói os componentes da janela.
-	 */	
+	 */
 	private void buildComponents() {
 		buildButtomPanel();
 		buildResultPanel();
-	}	
+	}
 
 	private void buildResultPanel() {
 		JPanel panel = new JPanel(new GridBagLayout());
-		
-		JTextField textField = new JTextField(16);
-		panel.add(textField, new GBC(0, 0));
-		
-		add(panel, new GBC(0,0));
+
+		txtField = new JTextField(16);
+		panel.add(txtField, new GBC(0, 0));
+
+		add(panel, new GBC(0, 0));
 	}
-	
+
 	/*
 	 * Constrói o painél de botões.
 	 */
 	private void buildButtomPanel() {
 		JPanel panel = new JPanel(new GridBagLayout());
-		
+
 		JButton button1 = new JButton("1");
 		panel.add(button1, new GBC(0, 1).both());
 		button1.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				button1(getText().textField.setText());
+				txtField.setText(txtField.getText() + "1");
 			}
 		});
 		JButton button2 = new JButton("2");
@@ -102,15 +100,15 @@ public class MainFrame extends JFrame {
 		panel.add(buttonIgual, new GBC(3, 4).both());
 		JButton buttonDecimal = new JButton(",");
 		panel.add(buttonDecimal, new GBC(0, 4).both());
-		
+
 		add(panel, new GBC(0, 1));
 	}
-	
+
 	/*
 	 * 
 	 */
 	private void buildMenu() {
-		
+
 	}
 
 }
